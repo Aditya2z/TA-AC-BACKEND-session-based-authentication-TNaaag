@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Articles List</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <% include partials/header-loggedin.ejs %>
+    <div class="container">
+      <div class="title">
+        <h1>Articles List</h1>
+      </div>
+      <a href="/articles/new" class="btn-green">Add Article</a>
+      <ul class="articlelist">
+        <% articles.forEach(function(article) { %>
+        <li>
+          <div class="flex-strip">
+            <h3><%= article.title %></h3>
+            <a href="/articles/<%= article._id %>" class="btn-green">Article Details</a>
+          </div>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+    <% include partials/footer.ejs %>
+  </body>
+</html>
